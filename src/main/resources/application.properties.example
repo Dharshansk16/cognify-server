@@ -20,5 +20,5 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 jwt.secret=
 jwt.expiration=
 # Azure Blob Storage
-azure.storage.blob.connection-string
-azure.storage.blob.container-name
+azure.storage.blob.connection-string=
+azure.storage.blob.container-name=
