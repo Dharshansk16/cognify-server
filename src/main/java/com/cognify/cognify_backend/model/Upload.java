@@ -1,12 +1,19 @@
 package com.cognify.cognify_backend.model;
 
-import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.time.LocalDateTime;
+
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "uploads")
@@ -15,8 +22,7 @@ import java.util.List;
 public class Upload {
 
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @org.hibernate.annotations.GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     @Column(nullable = false)
@@ -40,9 +46,4 @@ public class Upload {
 
     private LocalDateTime deletedAt;
 
-    @OneToMany(mappedBy = "upload", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<TrainingChunk> chunks;
-
-    @OneToMany(mappedBy = "upload", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Neo4jNode> neo4jNodes;
 }

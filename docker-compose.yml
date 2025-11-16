@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: cognify-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: cognify
+      POSTGRES_PASSWORD: cognify123
+      POSTGRES_DB: cognifydb
+    ports:
+      - "5433:5432"
+    volumes:
+      - cognify_data:/var/lib/postgresql/data
+    networks:
+      - cognify-network
+
+  neo4j:
+    image: neo4j:5.15
+    container_name: cognify-neo4j
+    restart: always
+    environment:
+      NEO4J_AUTH: neo4j/neo4j123
+      NEO4J_PLUGINS: '["apoc"]'
+    ports:
+      - "7474:7474" # HTTP
+      - "7687:7687" # Bolt
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+    networks:
+      - cognify-network
+
+networks:
+  cognify-network:
+    driver: bridge
+
+volumes:
+  cognify_data:
+  neo4j_data:
+  neo4j_logs:
