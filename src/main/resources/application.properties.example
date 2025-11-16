@@ -1,10 +1,10 @@
 spring.application.name=cognify-backend
 
 # PostgreSQL Configuration
-spring.datasource.url=jdbc:postgresql://localhost:5433/cognifydb
-spring.datasource.username=cognify
-spring.datasource.password=cognify123
-spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=
+spring.datasource.username=
+spring.datasource.password=
+spring.datasource.driver-class-name=
 
 # JPA/Hibernate Configuration
 spring.jpa.hibernate.ddl-auto=update
@@ -12,16 +12,13 @@ spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 
 # Neo4j Configuration (optional - comment out if not using)
-#spring.neo4j.uri=bolt://localhost:7687
-#spring.neo4j.authentication.username=neo4j
-#spring.neo4j.authentication.password=neo4j123
+#spring.neo4j.uri=
+#spring.neo4j.authentication.username=
+#spring.neo4j.authentication.password=
 
 # JWT Configuration
-jwt.secret=${JWT_SECRET:404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970}
-jwt.expiration=${JWT_EXPIRATION:86400000}
-
+jwt.secret=
+jwt.expiration=
 # Azure Blob Storage
-azure.storage.blob.connection-string=${AZURE_STORAGE_CONNECTION_STRING}
-azure.storage.blob.container-name=${AZURE_BLOB_CONTAINER_NAME:cognify}
-
-
+azure.storage.blob.connection-string
+azure.storage.blob.container-name
