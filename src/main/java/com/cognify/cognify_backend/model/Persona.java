@@ -48,7 +48,11 @@ public class Persona {
     @JsonIgnore
     private User owner;
 
-    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<Conversation> conversations;
+
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Upload> uploads;
 }
