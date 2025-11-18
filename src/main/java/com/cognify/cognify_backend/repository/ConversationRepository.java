@@ -11,4 +11,5 @@ import com.cognify.cognify_backend.model.Conversation;
 public interface ConversationRepository extends JpaRepository<Conversation, String> {
     List<Conversation> findByUserId(String userId);
     List<Conversation> findByPersonaId(String personaId);
+    List<Conversation> findByUserIdOrderByUpdatedAtDesc(String userId);
 }
