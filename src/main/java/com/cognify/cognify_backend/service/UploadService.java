@@ -26,6 +26,12 @@ public class UploadService {
     private final HybridTrainingService trainingService;
 
     public Upload uploadFile(MultipartFile file, String userId, String personaId) throws Exception {
+        if (userId == null) {
+            throw new IllegalArgumentException("User ID cannot be null");
+        }
+        if (personaId == null) {
+            throw new IllegalArgumentException("Persona ID cannot be null");
+        }
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
         Persona persona = personaRepository.findById(personaId)

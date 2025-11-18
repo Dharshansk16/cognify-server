@@ -31,10 +31,10 @@ public class AuthService {
         user.setName(request.getName());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
-        userRepository.save(user);
+        User savedUser = userRepository.save(user);
 
         String token = jwtService.generateToken(user.getEmail());
-        return new AuthResponse(token);
+        return new AuthResponse(token, savedUser.getId(), savedUser.getEmail(), savedUser.getName());
     }
 
     public AuthResponse login(AuthRequest request) {
@@ -47,6 +47,6 @@ public class AuthService {
         }
 
         String token = jwtService.generateToken(user.getEmail());
-        return new AuthResponse(token);
+        return new AuthResponse(token, user.getId(), user.getEmail(), user.getName());
     }
 }

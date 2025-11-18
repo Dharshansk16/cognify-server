@@ -38,6 +38,7 @@ public class PersonaService {
     }
 
     public Persona updatePersona(String id, Persona data) {
+        if (id == null) throw new IllegalArgumentException("id cannot be null");
         Persona persona = personaRepository.findById(id).orElseThrow();
 
         if (data.getName() != null) persona.setName(data.getName());
