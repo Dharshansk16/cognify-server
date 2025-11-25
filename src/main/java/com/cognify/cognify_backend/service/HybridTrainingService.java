@@ -171,7 +171,7 @@ public class HybridTrainingService {
                 String text = stripper.getText(pdf);
 
                 // LangChain4j chunking
-                DocumentSplitter splitter = DocumentSplitters.recursive(500, 50);
+                DocumentSplitter splitter = DocumentSplitters.recursive(1000, 100);
                 List<TextSegment> segments = splitter.split(dev.langchain4j.data.document.Document.from(text));
 
                 int i = 0;
