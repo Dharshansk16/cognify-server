@@ -1,0 +1,13 @@
+target/
+.git/
+.gitignore
+.env
+.env.*
+*.log
+*.md
+.mvn/
+mvnw
+mvnw.cmd
+db-manager.sh
+docker-compose.yml
+run.sh
